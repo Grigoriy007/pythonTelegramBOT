@@ -54,6 +54,7 @@ async def mes_all(message: types.Message):
         await bot.send_message(message.from_user.id, f'Конфет на столе осталось - {total}')
         if total == 0:
             await bot.send_message(message.from_user.id, f'Вы победитель!!!')
+            updater.stop()
         time.sleep(1)
         second_player_ch = randint(1, 28)
         if total <= 28:
@@ -65,6 +66,7 @@ async def mes_all(message: types.Message):
         await message.answer(f'Конфет на столе осталось - {total}')
         if total == 0:
             await bot.send_message(message.from_user.id, f'Я победил!!!')
+            updater.stop()
     else:
         await bot.send_message(message.from_user.id, 'Пожалуйста введите правильное значение')
 
